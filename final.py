@@ -220,16 +220,13 @@ class MonteCarloLocalization(object):
 
         if block[1] == self.col_num - 1:
             right_side_cell_left_value = 0
-            # right_side_cell_down_value = 0 # not used
+
         else:
             right_side_cell_left_value = self.world_left_wall[block[0], block[1] + 1]
-            # right_side_cell_down_value = self.world_down_wall[block[0], block[1] + 1]
 
         if block[0] == self.row_num - 1:
-            # top_side_cell_left_value = 0 # not used
             top_side_cell_down_value = 0
         else:
-            # top_side_cell_left_value = self.world_left_wall[block[0] + 1, block[1]] # not used
             top_side_cell_down_value = self.world_down_wall[block[0] + 1, block[1]]
 
         return_val["top"] = top_side_cell_down_value
@@ -278,8 +275,6 @@ class MonteCarloLocalization(object):
                 # hit a wall below.
                 ret_val["down"] = position_y - self.path_height * i
                 break
-            # if i == 0:
-            #     ret_val["down"] = 100  # there's no down wall, give a maximum dist
 
         for i in range(col, self.col_num, 1):
             walls = self.check_walls((row, i))
@@ -349,7 +344,6 @@ class MonteCarloLocalization(object):
             cumulative_distribution.append(current_accumulation)
 
         # randomly select based on weights, higher the weight, more the likely
-        # keep 1/5th of the original samples
         kept_estimates = list()
         for i in range(0, int(self.max_num_of_estimates)):
             random_val = np.random.uniform(0, 1)
@@ -527,8 +521,8 @@ if __name__ == '__main__':
 
     world_width = 512
     world_height = 512
-    col_num = 5
-    row_num = 5
+    col_num = 10
+    row_num = 10
 
     demo = MonteCarloLocalization(world_height, world_width, row_num, col_num, 1000)
     demo.run()
