@@ -223,16 +223,16 @@ class MonteCarloLocalization(object):
 
         if block[1] == self.col_num - 1:
             right_side_cell_left_value = 0
-            # right_side_cell_down_value = 0 # not used
+
         else:
             right_side_cell_left_value = self.world_left_wall[block[0], block[1] + 1]
-            # right_side_cell_down_value = self.world_down_wall[block[0], block[1] + 1]
+
 
         if block[0] == self.row_num - 1:
             # top_side_cell_left_value = 0 # not used
             top_side_cell_down_value = 0
         else:
-            # top_side_cell_left_value = self.world_left_wall[block[0] + 1, block[1]] # not used
+
             top_side_cell_down_value = self.world_down_wall[block[0] + 1, block[1]]
 
         return_val["top"] = top_side_cell_down_value
@@ -251,3 +251,75 @@ class MonteCarloLocalization(object):
         col = int(position_x / self.path_width)
         row = int(position_y / self.path_height)
         return row, col
+
+   def get_block_index(self, position_x: float, position_y: float) -> (int, int):
+        """
+
+        :param position_x: location within map
+        :param position_y: location within map
+        :return: the block that contains the the position, (row, col)
+        """
+        col = int(position_x / self.path_width)
+        row = int(position_y / self.path_height)
+        return row, col
+
+    def distance_to_walls(self, position_x: float, position_y: float):
+        """
+        ^
+        |
+         ---- x/col/width
+        find the distance to top/left/down/right walls
+        :param position_x: location x
+        :param position_y: location y
+        :return: dict = [top: ,left: ,down: ,right: ] distance
+        """
+        ret_val = dict()
+        col = int(position_x / self.path_width)
+        row = int(position_y / self.path_height)
+
+        for i in range(col, -1, -1):
+            walls = self.check_walls((row, i))
+            if walls["left"]:
+                # hit a wall on left.
+                ret_val["left"] = position_x - self.path_width * i
+                break
+
+
+        for i in range(row, -1, -1):
+            walls = self.check_walls((i, col))
+            if walls["down"]:
+                # hit a wall below.
+                ret_val["down"] = position_y - self.path_height * i
+                break
+            # if i == 0:
+            #     ret_val["down"] = 100  # there's no down wall, give a maximum dist
+
+        for i in range(col, self.col_num, 1):
+            walls = self.check_walls((row, i))
+            if walls["right"]:
+                # hit a wall on the right.
+                ret_val["right"] = self.path_width * (i + 1) - position_x
+                break
+            # if i == self.col_num - 1:
+            #     ret_val["right"] = 100  # there's no right wall, give a maximum dist
+
+        for i in range(row, self.row_num, 1):
+            walls = self.check_walls((i, col))
+            if walls["top"]:
+                ret_val["top"] = self.path_height * (i + 1) - position_y
+                break
+            # if i == self.row_num - 1:
+            #     ret_val["top"] = 100  # there's no top wall, give a maximum dist
+
+        return ret_val
+
+    def sensor_error_norm(self, sensor_reading_1, sensor_reading_2, heading_1, heading_2):
+        diff_top = sensor_reading_1["top"] - sensor_reading_2["top"]
+        diff_left = sensor_reading_1["left"] - sensor_reading_2["left"]
+        diff_down = sensor_reading_1["down"] - sensor_reading_2["down"]
+        diff_right = sensor_reading_1["right"] - sensor_reading_2["right"]
+        diff_heading = np.radians(180 - abs(abs(heading_1 - heading_2) % 360 - 180)) * 5
+
+        squared_sum = diff_top * diff_top + diff_left * diff_left + diff_down * diff_down + diff_right * diff_right + diff_heading * diff_heading
+
+        return np.sqrt(squared_sum)
