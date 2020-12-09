@@ -252,16 +252,6 @@ class MonteCarloLocalization(object):
         row = int(position_y / self.path_height)
         return row, col
 
-   def get_block_index(self, position_x: float, position_y: float) -> (int, int):
-        """
-
-        :param position_x: location within map
-        :param position_y: location within map
-        :return: the block that contains the the position, (row, col)
-        """
-        col = int(position_x / self.path_width)
-        row = int(position_y / self.path_height)
-        return row, col
 
     def distance_to_walls(self, position_x: float, position_y: float):
         """
@@ -308,8 +298,6 @@ class MonteCarloLocalization(object):
             if walls["top"]:
                 ret_val["top"] = self.path_height * (i + 1) - position_y
                 break
-            # if i == self.row_num - 1:
-            #     ret_val["top"] = 100  # there's no top wall, give a maximum dist
 
         return ret_val
 
