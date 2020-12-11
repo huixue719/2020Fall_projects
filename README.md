@@ -25,10 +25,12 @@ Given a robot with sensor, it can constantly estimate the position and orientati
 - The particles should converge towards the actual position of the robot. 
 
 # Demo
+- Green arrow: the real robot (move constantly)
 - Red arrows: randomly generated particles
 - Blue arrows(predicted): the weight of all the state of red arrows
-- Green arrow: the real robot
 
+
+![](https://github.com/huixue719/2020Fall_projects/blob/main/demo.png)
 
 # References:
 https://en.wikipedia.org/wiki/Monte_Carlo_localization
