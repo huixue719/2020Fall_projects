@@ -19,19 +19,20 @@ Then the robot will discard particles inconsistent with the and generate new sam
 Ultimately, the particles should converge towards the actual position of the robot. 
 
 
-
 # Hypotheses
-- The map is given
-- The robot could start anywhere on the map randomly
-- The particles are generated randomly on the map
-- The sensor is noisy
+In the generated map, assuming that the robot could start anywhere, it can use the particle filters combined with the sensor to understand where it is
 
 # Needed Models
 - Map generator:
 
   The whole environment is represented as a randomly generated 2-D map with walls.
 - Robot Model
-  
+
+# Changeable Variables:
+- world_width: the width of the map
+- world_height: the height of the map
+- row_num: the number of the obstacles (horizontal)
+- col_num: the number of the obstacles (verticle)
 # Key Ideas
 - Initialize the system by generating the environment and robot
 - The true measurement of the sensors for the estimated particles are computed and compared against the noisy (gaussian) sensor data
