@@ -9,7 +9,7 @@ Shiqi took charge of the first class, including drawing the map, the car, ect, a
 
 Hui took the second part of the distance, emstimated weights,resample the estimates, ect.
 
-(Errors encountered in the final test, so Shiqi committed the whole file again.)
+(Errors encountered in the final test, so Shiqi committed the whole file in the end.)
 
 # Introduction
 
