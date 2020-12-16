@@ -20,7 +20,10 @@ Ultimately, the particles should converge towards the actual position of the rob
 
 
 # Hypotheses
-In the generated map, assuming that the robot could start anywhere, it can use the particle filters combined with the sensor to understand where it is
+- The robot could start anywhere on the map randomly
+- The particles are generated randomly on the map
+- The sensor is noisy
+- In the generated map, the robot can use the particle filters combined with the sensor to understand where it is
 
 # Needed Models
 - Map generator:
