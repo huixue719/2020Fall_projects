@@ -14,7 +14,7 @@ Given a robot with sensor, it can constantly estimate the position and orientati
 
 The particles can be considered as the possible locations and orientations of the robots, in other words, they are collected number of hypothesis state that the robot could be there in the future.The system will calculate the probability or the weight of the particle. Particles that closely match the observations are weighted higher than particles which don't match the observations very well. Then the particles will update its location based on its own heading and velocity. 
 
-Then the robot will discard particles inconsistent with the and generate new sample around particles with non-zero weight with gaussian distribution. The sampling strategy is that the higher the weight of the particle, the more likely it will be selected to be the center for the said gaussian distribution. It keeps updating the particles to more accurately reflect where it is while moving. 
+Then the system will discard particles inconsistent with the and generate new sample around particles with non-zero weight with gaussian distribution. The sampling strategy is that the higher the weight of the particle, the more likely it will be selected to be the center for the said gaussian distribution. It keeps updating the particles to more accurately reflect where it is while moving. 
 
 Ultimately, the particles should converge towards the actual position of the robot. 
 
@@ -34,8 +34,8 @@ Ultimately, the particles should converge towards the actual position of the rob
 # Changeable Variables:
 - world_width: the width of the map
 - world_height: the height of the map
-- row_num: the number of the obstacles (horizontal)
-- col_num: the number of the obstacles (verticle)
+- row_num: the number of the grid (x-axis)
+- col_num: the number of the grid (y-axis)
 # Key Ideas
 - Initialize the system by generating the environment and robot
 - The true measurement of the sensors for the estimated particles are computed and compared against the noisy (gaussian) sensor data
