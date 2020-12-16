@@ -9,10 +9,10 @@ class MonteCarloLocalization(object):
         """
         initialize the turtle world.
         THE MAIN FUNCTION IS run()
-        :param world_height:
-        :param world_width:
-        :param row_num:
-        :param col_num:
+        :param world_height: the height of the map
+        :param world_width: the width of the map
+        :param row_num: the parallel obstacle numbers
+        :param col_num: the vertical obstacle numbers
         """
         self.path_height = height / row_num
         self.path_width = width / col_num
