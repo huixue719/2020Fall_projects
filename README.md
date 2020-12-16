@@ -5,9 +5,9 @@
 ### Authors: Shiqi Liu & Hui Xue
 ### Contribution: 
 
-Shiqi mostly takes charge of the first class, including drawing the map, the car, ect.
+Shiqi took charge of the first class, including drawing the map, the car, ect, and cooperated with Hui to edited the README. 
 
-Hui takes the second part of the distance, emstimated weights,resample the estimates, ect.
+Hui took the second part of the distance, emstimated weights,resample the estimates, ect.
 # Introduction
 
 Given a robot with sensor, it can constantly estimate the position and orientation of itself as it moves and sense the unknown environment by taking advantages of *Monte Carlo Localization*, i.e. particle filter localization. 
