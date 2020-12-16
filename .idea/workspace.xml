@@ -17,11 +17,16 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>uniform</find>
-      <find>speed</find>
-    </findStrings>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,8 +49,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.final_file">
     <configuration name="final" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2020Fall_projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -60,6 +66,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/final.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="final_file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2020Fall_projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/final_file.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -92,6 +120,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.final_file" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -109,7 +138,7 @@
       <updated>1607477241713</updated>
       <workItem from="1607477248171" duration="17076000" />
       <workItem from="1607526792553" duration="1943000" />
-      <workItem from="1608086677991" duration="1204000" />
+      <workItem from="1608086677991" duration="2480000" />
     </task>
     <task id="LOCAL-00001" summary="sensor errors functions and check if there is a wall">
       <created>1607497165786</created>
@@ -153,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608086862596</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update docstrings">
+      <created>1608087924546</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608087924546</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,30 +204,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="update docstrings" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="556" y="69" key="CommitChangelistDialog2" timestamp="1608086861564">
+    <state x="556" y="69" key="CommitChangelistDialog2" timestamp="1608087923946">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="556" y="69" key="CommitChangelistDialog2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608086861564" />
-    <state width="997" height="281" key="GridCell.Tab.0.bottom" timestamp="1608087161444">
+    <state x="556" y="69" key="CommitChangelistDialog2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087923946" />
+    <state width="997" height="281" key="GridCell.Tab.0.bottom" timestamp="1608088609366">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.bottom/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087161444" />
-    <state width="997" height="281" key="GridCell.Tab.0.center" timestamp="1608087161443">
+    <state width="997" height="281" key="GridCell.Tab.0.bottom/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
+    <state width="997" height="281" key="GridCell.Tab.0.center" timestamp="1608088609366">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.center/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087161443" />
-    <state width="997" height="281" key="GridCell.Tab.0.left" timestamp="1608087161443">
+    <state width="997" height="281" key="GridCell.Tab.0.center/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
+    <state width="997" height="281" key="GridCell.Tab.0.left" timestamp="1608088609366">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.left/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087161443" />
-    <state width="997" height="281" key="GridCell.Tab.0.right" timestamp="1608087161444">
+    <state width="997" height="281" key="GridCell.Tab.0.left/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
+    <state width="997" height="281" key="GridCell.Tab.0.right" timestamp="1608088609366">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.right/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087161444" />
-    <state x="517" y="209" key="Vcs.Push.Dialog.v2" timestamp="1608086867918">
+    <state width="997" height="281" key="GridCell.Tab.0.right/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
+    <state x="409" y="115" key="SettingsEditor" timestamp="1608088770544">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="517" y="209" key="Vcs.Push.Dialog.v2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608086867918" />
+    <state x="409" y="115" key="SettingsEditor/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088770544" />
+    <state x="517" y="209" key="Vcs.Push.Dialog.v2" timestamp="1608087926443">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="517" y="209" key="Vcs.Push.Dialog.v2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087926443" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -205,7 +245,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/2020Fall_projects$test.coverage" NAME="test Coverage Results" MODIFIED="1608087161422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/2020Fall_projects$test.coverage" NAME="test Coverage Results" MODIFIED="1608088609357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/2020Fall_projects$final.coverage" NAME="final Coverage Results" MODIFIED="1607527334881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
