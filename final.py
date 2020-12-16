@@ -40,6 +40,7 @@ class MonteCarloLocalization(object):
         self.current_estimates = self.create_estimates(num_of_estimates)
 
     def draw_estimated_location_of_the_car(self, estimates=None):
+        # generate the green arrow based on the weight of the particles
         if estimates is None:
             estimates = self.current_estimates
 
@@ -71,6 +72,7 @@ class MonteCarloLocalization(object):
         turtle.stamp()
 
     def draw_estimates(self, estimates=None):
+        # generate the red arrows (randomly generated particles)
         if estimates is None:
             estimates = self.current_estimates
 
@@ -86,6 +88,7 @@ class MonteCarloLocalization(object):
         turtle.update()
 
     def draw_car(self):
+        # generate the robot
         turtle.shape("arrow")
         turtle.shapesize(0.7, 2.8, 1)
         turtle.penup()
@@ -106,7 +109,7 @@ class MonteCarloLocalization(object):
     def create_map(self):
         """
 
-        :return:
+        :return: create the environment
         """
         assert self.row_num > 0 and self.col_num > 0 and "row and col number must be greater than 0"
         self.world_down_wall = np.zeros((self.row_num, self.col_num), dtype=np.uint8)
@@ -150,10 +153,6 @@ class MonteCarloLocalization(object):
         print("finished creating the world.")
 
     def draw_map(self):
-        '''
-
-        :return:
-        '''
         turtle.setworldcoordinates(0, 0, self.width, self.height)
 
         cursor = turtle.Turtle()
@@ -240,7 +239,6 @@ class MonteCarloLocalization(object):
 
     def get_block_index(self, position_x: float, position_y: float) -> (int, int):
         """
-
         :param position_x: location within map
         :param position_y: location within map
         :return: the block that contains the the position, (row, col)
@@ -269,8 +267,6 @@ class MonteCarloLocalization(object):
                 # hit a wall on left.
                 ret_val["left"] = position_x - self.path_width * i
                 break
-            # if i == 0:
-            #     ret_val["left"] = 100  # there's no left wall, give a max dist
 
         for i in range(row, -1, -1):
             walls = self.check_walls((i, col))
@@ -278,8 +274,6 @@ class MonteCarloLocalization(object):
                 # hit a wall below.
                 ret_val["down"] = position_y - self.path_height * i
                 break
-            # if i == 0:
-            #     ret_val["down"] = 100  # there's no down wall, give a maximum dist
 
         for i in range(col, self.col_num, 1):
             walls = self.check_walls((row, i))
@@ -301,6 +295,14 @@ class MonteCarloLocalization(object):
         return ret_val
 
     def sensor_error_norm(self, sensor_reading_1, sensor_reading_2, heading_1, heading_2):
+        """
+        calculate the normalized value
+        :param sensor_reading_1: noisy distance measurement from robot
+        :param sensor_reading_2: measurement from the estimate value
+        :param heading_1: the heading of noisy robot
+        :param heading_2: the estimate heading
+        :return: the normalized value
+        """
         diff_top = sensor_reading_1["top"] - sensor_reading_2["top"]
         diff_left = sensor_reading_1["left"] - sensor_reading_2["left"]
         diff_down = sensor_reading_1["down"] - sensor_reading_2["down"]
@@ -524,7 +526,7 @@ class SelfDrivingCarEstimate(object):
 
 
 if __name__ == '__main__':
-
+    # changeable variables: world width, world height, col num, row num
     world_width = 512
     world_height = 512
     col_num = 10
