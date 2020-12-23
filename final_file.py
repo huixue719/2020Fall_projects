@@ -43,9 +43,6 @@ class MonteCarloLocalization(object):
         """
         >>> test.draw_estimated_location_of_the_car(estimates=list())
         no estimate found
-
-        :param estimates:
-        :return:
         """
         if estimates is None:
             estimates = self.current_estimates
@@ -130,9 +127,6 @@ class MonteCarloLocalization(object):
         True
         True
         True
-
-        :param estimate_count:
-        :return:
         """
         car_estimates = list()
         for i in range(estimate_count):
@@ -193,10 +187,7 @@ class MonteCarloLocalization(object):
         print("finished creating the world.")
 
     def draw_map(self):
-        '''
 
-        :return:
-        '''
         turtle.setworldcoordinates(0, 0, self.width, self.height)
 
         cursor = turtle.Turtle()
@@ -252,6 +243,10 @@ class MonteCarloLocalization(object):
 
     def check_walls(self, block: (int, int)):
         """
+        check existence of walls.
+        :param block: the block's index (row, col)
+        :return: (top,lef,down,right). true if wall exists, false otherwise.
+        
         >>> res = test.check_walls((0, 0))
         >>> res["down"]
         1
@@ -261,10 +256,6 @@ class MonteCarloLocalization(object):
         True
         >>> res["right"] == test.world_left_wall[0, 1]
         True
-
-        check existence of walls.
-        :param block: the block's index (row, col)
-        :return: (top,lef,down,right). true if wall exists, false otherwise.
         """
         return_val = dict()
 
@@ -293,35 +284,32 @@ class MonteCarloLocalization(object):
 
     def get_block_index(self, position_x: float, position_y: float) -> (int, int):
         """
+        :param position_x: location within map
+        :param position_y: location within map
+        :return: the block that contains the the position, (row, col)
+        
         >>> test.get_block_index( 145, 123)
         (1, 1)
         >>> test.get_block_index(212, 421)
         (4, 2)
-
-        :param position_x: location within map
-        :param position_y: location within map
-        :return: the block that contains the the position, (row, col)
         """
+        
         col = int(position_x / self.path_width)
         row = int(position_y / self.path_height)
         return row, col
 
     def distance_to_walls(self, position_x: float, position_y: float):
         """
-
+        find the distance to top/left/down/right walls
+        :param position_x: location x
+        :param position_y: location y
+        :return: dict = [top: ,left: ,down: ,right: ] distance
+        
         >>> dist = test.distance_to_walls(24, 36)
         >>> dist["down"]
         36.0
         >>> dist["left"]
         24.0
-
-        ^
-        |
-         ---- x/col/width
-        find the distance to top/left/down/right walls
-        :param position_x: location x
-        :param position_y: location y
-        :return: dict = [top: ,left: ,down: ,right: ] distance
         """
         ret_val = dict()
         col = int(position_x / self.path_width)
@@ -370,17 +358,18 @@ class MonteCarloLocalization(object):
 
     def sensor_error_norm(self, sensor_reading_1, sensor_reading_2, heading_1, heading_2):
         """
-        >>> reading1 = test.distance_to_walls(24, 36)
-        >>> reading2 = test.distance_to_walls(25, 36)
-        >>> test.sensor_error_norm(reading1, reading2, 0, 0)
-        1.4142135623730951
-
         :param sensor_reading_1:
         :param sensor_reading_2:
         :param heading_1:
         :param heading_2:
         :return:
+        
+        >>> reading1 = test.distance_to_walls(24, 36)
+        >>> reading2 = test.distance_to_walls(25, 36)
+        >>> test.sensor_error_norm(reading1, reading2, 0, 0)
+        1.4142135623730951
         """
+        
         diff_top = sensor_reading_1["top"] - sensor_reading_2["top"]
         diff_left = sensor_reading_1["left"] - sensor_reading_2["left"]
         diff_down = sensor_reading_1["down"] - sensor_reading_2["down"]
@@ -395,8 +384,6 @@ class MonteCarloLocalization(object):
                                 estimage_sigma=100):
         """
         update vehicle estimate's weight
-        :param noisy_distance_measurement_from_vehicle:
-        :return:
         """
         sum_weight = 0  # prevent division by zero
 
@@ -423,7 +410,7 @@ class MonteCarloLocalization(object):
         current_accumulation = 0
         cumulative_distribution = list()
 
-        # remember, sum of the weight is 1
+        # sum of the weight is 1
         for est in self.current_estimates:
             current_accumulation = current_accumulation + est.weight
             cumulative_distribution.append(current_accumulation)
