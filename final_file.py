@@ -9,13 +9,13 @@ class MonteCarloLocalization(object):
         """
         initialize the turtle world.
         THE MAIN FUNCTION IS run()
-        :param world_height: the height of the map
-        :param world_width: the width of the map
-        :param row_num: the parallel obstacle numbers
-        :param col_num: the vertical obstacle numbers
+        :param world_height:
+        :param world_width:
+        :param row_num:
+        :param col_num:
         """
-        self.path_height = height / row_num
-        self.path_width = width / col_num
+        self.path_height = height / row_num_
+        self.path_width = width / col_num_
         self.height = height
         self.width = width
         self.row_num = row_num_
@@ -40,7 +40,13 @@ class MonteCarloLocalization(object):
         self.current_estimates = self.create_estimates(num_of_estimates)
 
     def draw_estimated_location_of_the_car(self, estimates=None):
-        # generate the green arrow based on the weight of the particles
+        """
+        >>> test.draw_estimated_location_of_the_car(estimates=list())
+        no estimate found
+
+        :param estimates:
+        :return:
+        """
         if estimates is None:
             estimates = self.current_estimates
 
@@ -72,7 +78,6 @@ class MonteCarloLocalization(object):
         turtle.stamp()
 
     def draw_estimates(self, estimates=None):
-        # generate the red arrows (randomly generated particles)
         if estimates is None:
             estimates = self.current_estimates
 
@@ -88,7 +93,6 @@ class MonteCarloLocalization(object):
         turtle.update()
 
     def draw_car(self):
-        # generate the robot
         turtle.shape("arrow")
         turtle.shapesize(0.7, 2.8, 1)
         turtle.penup()
@@ -98,6 +102,38 @@ class MonteCarloLocalization(object):
         turtle.stamp()
 
     def create_estimates(self, estimate_count: int):
+        """
+        >>> estimates = test.create_estimates(estimate_count=10)
+        >>> len(estimates)
+        10
+        >>> for i in range(len(estimates)):
+        ...     print(bool(estimates[i].x < test.width - test.path_width))
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        >>> for i in range(len(estimates)):
+        ...     print(bool(estimates[i].y < test.height - test.path_height))
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+        True
+
+        :param estimate_count:
+        :return:
+        """
         car_estimates = list()
         for i in range(estimate_count):
             x = np.random.uniform(0, self.width - self.path_width)
@@ -108,8 +144,12 @@ class MonteCarloLocalization(object):
 
     def create_map(self):
         """
-
-        :return: create the environment
+        >>> test.create_map()
+        finished creating the world.
+        >>> np.shape(test.world_down_wall)
+        (5, 5)
+        >>> np.shape(test.world_left_wall)
+        (5, 5)
         """
         assert self.row_num > 0 and self.col_num > 0 and "row and col number must be greater than 0"
         self.world_down_wall = np.zeros((self.row_num, self.col_num), dtype=np.uint8)
@@ -153,6 +193,10 @@ class MonteCarloLocalization(object):
         print("finished creating the world.")
 
     def draw_map(self):
+        '''
+
+        :return:
+        '''
         turtle.setworldcoordinates(0, 0, self.width, self.height)
 
         cursor = turtle.Turtle()
@@ -208,6 +252,16 @@ class MonteCarloLocalization(object):
 
     def check_walls(self, block: (int, int)):
         """
+        >>> res = test.check_walls((0, 0))
+        >>> res["down"]
+        1
+        >>> res["left"]
+        1
+        >>> res["top"] == test.world_down_wall[1, 0]
+        True
+        >>> res["right"] == test.world_left_wall[0, 1]
+        True
+
         check existence of walls.
         :param block: the block's index (row, col)
         :return: (top,lef,down,right). true if wall exists, false otherwise.
@@ -239,6 +293,11 @@ class MonteCarloLocalization(object):
 
     def get_block_index(self, position_x: float, position_y: float) -> (int, int):
         """
+        >>> test.get_block_index( 145, 123)
+        (1, 1)
+        >>> test.get_block_index(212, 421)
+        (4, 2)
+
         :param position_x: location within map
         :param position_y: location within map
         :return: the block that contains the the position, (row, col)
@@ -249,6 +308,13 @@ class MonteCarloLocalization(object):
 
     def distance_to_walls(self, position_x: float, position_y: float):
         """
+
+        >>> dist = test.distance_to_walls(24, 36)
+        >>> dist["down"]
+        36.0
+        >>> dist["left"]
+        24.0
+
         ^
         |
          ---- x/col/width
@@ -267,6 +333,9 @@ class MonteCarloLocalization(object):
                 # hit a wall on left.
                 ret_val["left"] = position_x - self.path_width * i
                 break
+            # if i == 0:
+            #     ret_val["left"] = 100  # there's no left wall, give a max dist
+        assert "left" in ret_val
 
         for i in range(row, -1, -1):
             walls = self.check_walls((i, col))
@@ -274,6 +343,9 @@ class MonteCarloLocalization(object):
                 # hit a wall below.
                 ret_val["down"] = position_y - self.path_height * i
                 break
+            # if i == 0:
+            #     ret_val["down"] = 100  # there's no down wall, give a maximum dist
+        assert "down" in ret_val
 
         for i in range(col, self.col_num, 1):
             walls = self.check_walls((row, i))
@@ -283,6 +355,7 @@ class MonteCarloLocalization(object):
                 break
             # if i == self.col_num - 1:
             #     ret_val["right"] = 100  # there's no right wall, give a maximum dist
+        assert "right" in ret_val
 
         for i in range(row, self.row_num, 1):
             walls = self.check_walls((i, col))
@@ -291,17 +364,22 @@ class MonteCarloLocalization(object):
                 break
             # if i == self.row_num - 1:
             #     ret_val["top"] = 100  # there's no top wall, give a maximum dist
+        assert "top" in ret_val
 
         return ret_val
 
     def sensor_error_norm(self, sensor_reading_1, sensor_reading_2, heading_1, heading_2):
         """
-        calculate the normalized value
-        :param sensor_reading_1: noisy distance measurement from robot
-        :param sensor_reading_2: measurement from the estimate value
-        :param heading_1: the heading of noisy robot
-        :param heading_2: the estimate heading
-        :return: the normalized value
+        >>> reading1 = test.distance_to_walls(24, 36)
+        >>> reading2 = test.distance_to_walls(25, 36)
+        >>> test.sensor_error_norm(reading1, reading2, 0, 0)
+        1.4142135623730951
+
+        :param sensor_reading_1:
+        :param sensor_reading_2:
+        :param heading_1:
+        :param heading_2:
+        :return:
         """
         diff_top = sensor_reading_1["top"] - sensor_reading_2["top"]
         diff_left = sensor_reading_1["left"] - sensor_reading_2["left"]
@@ -345,7 +423,7 @@ class MonteCarloLocalization(object):
         current_accumulation = 0
         cumulative_distribution = list()
 
-        # sum of the weight is 1
+        # remember, sum of the weight is 1
         for est in self.current_estimates:
             current_accumulation = current_accumulation + est.weight
             cumulative_distribution.append(current_accumulation)
@@ -526,12 +604,14 @@ class SelfDrivingCarEstimate(object):
 
 
 if __name__ == '__main__':
-    # changeable variables: world width, world height, col num, row num (all integer)
+    import doctest
+    doctest.testmod(extraglobs={'test': MonteCarloLocalization(512, 512, 5, 5, 100)})
+
     world_width = 512
     world_height = 512
-    col_num = 8
-    row_num = 8
+    col_num = 5
+    row_num = 5
 
     demo = MonteCarloLocalization(world_height, world_width, row_num, col_num, 1000)
     demo.run()
-
+    dist = demo.distance_to_walls(8, 8)

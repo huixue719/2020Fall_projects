@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e08582d3-3c54-4070-a5cd-916790d967fd" name="Default Changelist" comment="">
+    <list default="true" id="e08582d3-3c54-4070-a5cd-916790d967fd" name="Default Changelist" comment="fix file running issue and upload new file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final.py" beforeDir="false" afterPath="$PROJECT_DIR$/final.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,10 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.final_file">
+  <component name="PyCoverageOptionsProvider">
+    <option name="myUseBundledCoveragePy" value="true" />
+  </component>
+  <component name="RunManager" selected="Python tests.Doctests in final_file">
     <configuration name="final" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2020Fall_projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,6 +99,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main(1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2020Fall_projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/WeChat Files/wxid_ysb1e20pgl4k11/FileStorage/File/2020-12" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/WeChat Files/wxid_ysb1e20pgl4k11/FileStorage/File/2020-12/main(1).py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="2020Fall_projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -118,8 +143,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Doctests in final_file" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+      <module name="2020Fall_projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/final_file.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Doctests in final_file" />
+        <item itemvalue="Python.main(1)" />
         <item itemvalue="Python.final_file" />
         <item itemvalue="Python.test" />
       </list>
@@ -138,7 +184,9 @@
       <updated>1607477241713</updated>
       <workItem from="1607477248171" duration="17076000" />
       <workItem from="1607526792553" duration="1943000" />
-      <workItem from="1608086677991" duration="2480000" />
+      <workItem from="1608086677991" duration="4087000" />
+      <workItem from="1608605279971" duration="5574000" />
+      <workItem from="1608734997443" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="sensor errors functions and check if there is a wall">
       <created>1607497165786</created>
@@ -189,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608087924546</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix file running issue and upload new file">
+      <created>1608089351461</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608089351461</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,40 +256,59 @@
     <MESSAGE value="update weight and resample function" />
     <MESSAGE value="delete useless test and comments" />
     <MESSAGE value="update docstrings" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docstrings" />
+    <MESSAGE value="fix file running issue and upload new file" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix file running issue and upload new file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="556" y="69" key="CommitChangelistDialog2" timestamp="1608087923946">
+    <state x="556" y="69" key="CommitChangelistDialog2" timestamp="1608089350769">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="556" y="69" key="CommitChangelistDialog2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087923946" />
-    <state width="997" height="281" key="GridCell.Tab.0.bottom" timestamp="1608088609366">
+    <state x="556" y="69" key="CommitChangelistDialog2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608089350769" />
+    <state width="741" height="198" key="GridCell.Tab.0.bottom" timestamp="1608735390880">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="741" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608735390880" />
+    <state width="997" height="281" key="GridCell.Tab.0.bottom/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608090769230" />
+    <state width="741" height="92" key="GridCell.Tab.0.bottom/0.0.2048.1112/2560.526.1536.824@2560.526.1536.824" timestamp="1608614226484" />
+    <state width="741" height="198" key="GridCell.Tab.0.center" timestamp="1608735390879">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="741" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608735390879" />
+    <state width="997" height="281" key="GridCell.Tab.0.center/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608090769230" />
+    <state width="741" height="92" key="GridCell.Tab.0.center/0.0.2048.1112/2560.526.1536.824@2560.526.1536.824" timestamp="1608614226483" />
+    <state width="741" height="198" key="GridCell.Tab.0.left" timestamp="1608735390879">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="741" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608735390879" />
+    <state width="997" height="281" key="GridCell.Tab.0.left/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608090769229" />
+    <state width="741" height="92" key="GridCell.Tab.0.left/0.0.2048.1112/2560.526.1536.824@2560.526.1536.824" timestamp="1608614226483" />
+    <state width="741" height="198" key="GridCell.Tab.0.right" timestamp="1608735390880">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="741" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608735390880" />
+    <state width="997" height="281" key="GridCell.Tab.0.right/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608090769230" />
+    <state width="741" height="92" key="GridCell.Tab.0.right/0.0.2048.1112/2560.526.1536.824@2560.526.1536.824" timestamp="1608614226483" />
+    <state x="409" y="115" key="SettingsEditor" timestamp="1608089831785">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.bottom/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
-    <state width="997" height="281" key="GridCell.Tab.0.center" timestamp="1608088609366">
+    <state x="409" y="115" key="SettingsEditor/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608089831785" />
+    <state x="517" y="209" key="Vcs.Push.Dialog.v2" timestamp="1608089354361">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.center/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
-    <state width="997" height="281" key="GridCell.Tab.0.left" timestamp="1608088609366">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="517" y="209" key="Vcs.Push.Dialog.v2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608089354361" />
+    <state x="3103" y="833" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608611026000">
+      <screen x="2560" y="526" width="1536" height="824" />
     </state>
-    <state width="997" height="281" key="GridCell.Tab.0.left/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
-    <state width="997" height="281" key="GridCell.Tab.0.right" timestamp="1608088609366">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="997" height="281" key="GridCell.Tab.0.right/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088609366" />
-    <state x="409" y="115" key="SettingsEditor" timestamp="1608088770544">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="409" y="115" key="SettingsEditor/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608088770544" />
-    <state x="517" y="209" key="Vcs.Push.Dialog.v2" timestamp="1608087926443">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="517" y="209" key="Vcs.Push.Dialog.v2/0.0.2048.1112/2560.526.1536.824@0.0.2048.1112" timestamp="1608087926443" />
+    <state x="3103" y="833" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112/2560.526.1536.824@2560.526.1536.824" timestamp="1608611026000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/Documents/WeChat Files/wxid_ysb1e20pgl4k11/FileStorage/File/2020-12/main(1).py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -247,5 +321,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/2020Fall_projects$test.coverage" NAME="test Coverage Results" MODIFIED="1608088609357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/2020Fall_projects$final.coverage" NAME="final Coverage Results" MODIFIED="1607527334881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/2020Fall_projects$main_1_.coverage" NAME="main(1) Coverage Results" MODIFIED="1608735332469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Documents/WeChat Files/wxid_ysb1e20pgl4k11/FileStorage/File/2020-12" />
+    <SUITE FILE_PATH="coverage/2020Fall_projects$final_file.coverage" NAME="final_file Coverage Results" MODIFIED="1608735290826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/2020Fall_projects$Doctests_in_final_file.coverage" NAME="Doctests in final_file Coverage Results" MODIFIED="1608735390855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
